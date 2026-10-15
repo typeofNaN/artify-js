@@ -1,0 +1,8 @@
+node_modules
+dist
+site
+coverage
+.playwright-cli
+output
+.DS_Store
+*.tgz
