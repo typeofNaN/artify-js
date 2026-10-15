@@ -1,6 +1,6 @@
 {
   "name": "@typeofnan/artify-js",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Local-first artistic image transformations for the browser",
   "type": "module",
   "license": "MIT",

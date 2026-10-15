@@ -27,25 +27,6 @@
 pnpm add @typeofnan/artify-js
 ```
 
-## 发布与 GitHub Pages
-
-npm 包使用公开作用域名称 `@typeofnan/artify-js`。首次发布前请确认已登录 npm，随后执行：
-
-```bash
-pnpm publish --access public
-```
-
-`prepublishOnly` 会在发布前自动执行完整构建，`publishConfig` 也已固定使用 npm 官方仓库和公开访问权限。
-
-推送到 `main` 后，[Pages 工作流](.github/workflows/pages.yml)会运行格式、Lint、类型和测试检查，随后构建并部署演示站。仓库的 Pages Source 需要设为 **GitHub Actions**。
-
-推送以 `v` 开头的标签时，[Release 工作流](.github/workflows/release.yml)会执行完整检查和库构建，生成 npm tarball，并使用该标签创建带自动发行说明的 GitHub Release：
-
-```bash
-git tag v0.1.0
-git push origin v0.1.0
-```
-
 ## 快速开始
 
 ```ts
