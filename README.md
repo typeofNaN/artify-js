@@ -1,4 +1,4 @@
-# artify-js
+# @typeofnan/artify-js
 
 [在线演示](https://typeofnan.github.io/artify-js/) · 图片完全在浏览器本地处理
 
@@ -24,10 +24,18 @@
 ## 安装
 
 ```bash
-pnpm add artify-js
+pnpm add @typeofnan/artify-js
 ```
 
 ## 发布与 GitHub Pages
+
+npm 包使用公开作用域名称 `@typeofnan/artify-js`。首次发布前请确认已登录 npm，随后执行：
+
+```bash
+pnpm publish --access public
+```
+
+`prepublishOnly` 会在发布前自动执行完整构建，`publishConfig` 也已固定使用 npm 官方仓库和公开访问权限。
 
 推送到 `main` 后，[Pages 工作流](.github/workflows/pages.yml)会运行格式、Lint、类型和测试检查，随后构建并部署演示站。仓库的 Pages Source 需要设为 **GitHub Actions**。
 
@@ -41,7 +49,7 @@ git push origin v0.1.0
 ## 快速开始
 
 ```ts
-import { artify } from 'artify-js'
+import { artify } from '@typeofnan/artify-js'
 
 const result = await artify(imageElement, {
   style: 'fragmented-oil',
@@ -71,7 +79,7 @@ const png = await result.toBlob('image/png')
 高质量绘画算法需要较多 CPU 计算。处理手机照片或大图时，建议开启 Worker：
 
 ```ts
-import { Artify } from 'artify-js'
+import { Artify } from '@typeofnan/artify-js'
 
 const engine = new Artify({ maxDimension: 1600 })
 
@@ -91,7 +99,7 @@ const result = await engine.render(file, {
 如需长期复用并自行管理 Worker 生命周期：
 
 ```ts
-import { createWorkerRenderer } from 'artify-js/worker'
+import { createWorkerRenderer } from '@typeofnan/artify-js/worker'
 
 const renderer = createWorkerRenderer()
 const outputFrame = await renderer.render(frame, { style: 'oil-paint' })
@@ -147,7 +155,7 @@ const result = await engine.render(file, {
 内置 pipeline 步骤包括：`soften`、`posterize`、`color`、`grain`、`outline`、`fragment-edge` 和 `palette`。
 
 ```ts
-import { renderFrame } from 'artify-js'
+import { renderFrame } from '@typeofnan/artify-js'
 
 const output = renderFrame(frame, {
   seed: 42,
@@ -162,7 +170,7 @@ const output = renderFrame(frame, {
 也可以注册自己的滤镜：
 
 ```ts
-import { registerFilter } from 'artify-js'
+import { registerFilter } from '@typeofnan/artify-js'
 
 registerFilter('lift-red', (frame) => {
   const output = { ...frame, data: new Uint8ClampedArray(frame.data) }
@@ -176,7 +184,7 @@ registerFilter('lift-red', (frame) => {
 ## 调色板映射
 
 ```ts
-import { mapPalette } from 'artify-js'
+import { mapPalette } from '@typeofnan/artify-js'
 
 const output = mapPalette(frame, ['#f4ead5', '#c76d46', '#27313f'], 'hsl')
 ```
@@ -191,7 +199,7 @@ const output = mapPalette(frame, ['#f4ead5', '#c76d46', '#27313f'], 'hsl')
 
 ## 与 AI 图片生成的区别
 
-`artify-js` 处理的是原始像素，不理解“人、车、云、建筑”等语义。它的优势是免费、快速、可重复、保护隐私，并且不会改变照片内容；但它不会像生成式 AI 一样重新绘制或创造画面元素。
+`@typeofnan/artify-js` 处理的是原始像素，不理解“人、车、云、建筑”等语义。它的优势是免费、快速、可重复、保护隐私，并且不会改变照片内容；但它不会像生成式 AI 一样重新绘制或创造画面元素。
 
 ## 本地开发
 

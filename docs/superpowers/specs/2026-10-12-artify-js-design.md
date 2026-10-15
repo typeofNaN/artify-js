@@ -2,7 +2,7 @@
 
 ## Intent
 
-Build `artify-js`, a browser-first, local-only image stylization library inspired by the palette-mapping idea in Ovilia/sunglass, but independently implemented and extended into composable artistic rendering pipelines. The library should make travel, landscape, street, portrait, and everyday photos feel deliberately illustrated without calling an AI service, uploading images, or incurring per-image costs.
+Build `@typeofnan/artify-js`, a browser-first, local-only image stylization library inspired by the palette-mapping idea in Ovilia/sunglass, but independently implemented and extended into composable artistic rendering pipelines. The library should make travel, landscape, street, portrait, and everyday photos feel deliberately illustrated without calling an AI service, uploading images, or incurring per-image costs.
 
 ## Goals
 
@@ -35,7 +35,7 @@ Build `artify-js`, a browser-first, local-only image stylization library inspire
 
 ## Constraints and chosen stack
 
-- Package identity: unscoped npm package `artify-js`.
+- Package identity: public scoped npm package `@typeofnan/artify-js`.
 - License: MIT.
 - Package manager: pnpm.
 - Language: strict TypeScript.

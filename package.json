@@ -1,5 +1,5 @@
 {
-  "name": "artify-js",
+  "name": "@typeofnan/artify-js",
   "version": "0.1.0",
   "description": "Local-first artistic image transformations for the browser",
   "type": "module",
@@ -30,15 +30,20 @@
   "homepage": "https://github.com/typeofNaN/artify-js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/typeofNaN/artify-js.git"
+    "url": "git+https://github.com/typeofNaN/artify-js.git"
   },
   "bugs": {
     "url": "https://github.com/typeofNaN/artify-js/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "dev": "vite",
     "build": "tsc -p tsconfig.build.json && vite build",
     "build:demo": "vite build --config vite.demo.config.ts",
+    "prepublishOnly": "pnpm build",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
